@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>闲云影视后台</title>
+		<script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+		<script type="text/javascript" src="http://code.jquery.com/jquery-1.8.0.min.js"></script>
+		<link type="text/css" rel="stylesheet" href="show.css">
+	</head>
+	<body>
+		<button class="button2" style="vertical-align:middle" onclick="btn()"><span>添加</span></button>
+		<span class="ttxtt">
+			<b>影视后台管理</b>
+		</span><br/>
+		<div class="container">
+			<table id="lenmon" class="tablelist">
+				<tbody class="tbodylist">
+					<tr class="ttt">
+						<th>影视海报</th>
+						<th style="width:100px;">影视名称</th>
+						<th style="width:100px;">影视类别</th>
+						<th>影视简介</th>
+						<th style="width:100px;">具体操作</th>
+					</tr>
+					<tr class="ttt">
+						<div class="over"></div>
+						<td class="logoImg amplifyImg"><img src="pic.jpg" title="点击图片放大" class="Pic"></td>
+						<td>寻梦环游记</td>
+						<td>喜剧/奇幻</td>
+						<td>热爱音乐的小男孩米格和落魄乐手埃克托在五彩斑斓的亡灵世界开启了一段奇妙冒险旅程的故事。</td>
+						<td>
+							<a href="#" id="e" class="button" onclick="modify(this)">编辑</a>
+							<br/><br/><br/>
+							<a href="#" id="d" class="button" onclick="Delete(this)">删除</a>
+						</td>
+					</tr>
+					<tr class="ttt">
+						<div class="over"></div>
+						<td class="logoImg amplifyImg"><img src="harry.jpg" title="点击图片放大" class="Pic"></td>
+						<td>哈利·波特与魔法石</td>
+						<td>奇幻/冒险</td>
+						<td>哈利波特11岁生日的时候，意外收到了霍格沃茨学院的入学通知书。在这个魔法学院里，他和朋友们经历了一系列惊心动魄的冒险。</td>
+						<td>
+							<a href="#" id="e" class="button" onclick="modify(this)">编辑</a>
+							<br/><br/><br/>
+							<a href="#" id="d" class="button" onclick="Delete(this)">删除</a>
+						</td>
+					</tr>
+					<tr class="ttt">
+						<div class="over"></div>
+						<td class="logoImg amplifyImg"><img src="qian.jpg" title="点击图片放大" class="Pic"></td>
+						<td>千与千寻</td>
+						<td>动画/奇幻</td>
+						<td>千寻随父母搬家到新城镇，在搬迁的路上，误入鬼怪神灵休息的世界。为了拯救变成猪的父母，在小白的帮助下，她逐渐成长。</td>
+						<td>
+							<a href="#" id="e" class="button" onclick="modify(this)">编辑</a>
+							<br/><br/><br/>
+							<a href="#" id="d" class="button" onclick="Delete(this)">删除</a>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="add" style="display: none;">
+		    <table class="addtable">
+		        <tr>
+					<div class="over"></div>
+		            <td class="img" rowspan="4" class="logoImg amplifyImg">
+		                <button class="circle">添加图片</button>
+		                <form>
+		                    <input type="file" id="logo" class="addlogo img" accept="image/*">
+						</form>
+						<img id="showlogo" src="" alt="" style="width:200px;">
+		            </td>
+		            <td class="lable">影视名称</td>
+		            <td style="width:300px;">
+		                <input type="text" id="name" placeholder="eg.寻梦环游记">
+		            </td>
+		        </tr>
+		        <tr>
+		            <td class="lable">影视类别</td>
+		            <td>
+		                <input type="text" id="class" placeholder="eg.冒险/热血/...">
+		            </td>
+		        </tr>
+		        <tr>
+		            <td class="lable">影视简介</td>
+		            <td>
+		                <textarea id="summary" cols="30" rows="10"></textarea>
+		            </td>
+		        </tr>
+		    </table>
+			<br />
+		    <div style="text-align: center;">
+		        <button class="bu sure" onclick="sure()">确定</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		        <button class="bu cancel" onclick="cancel()">取消</button>
+		    </div>
+		</div>
+		<div class="edit" style="display: none;">
+		    <table class="edittable">
+		        <tbody class="detail">
+		            <tr>
+		                <td class="img" rowspan="4"><img class="dt detialimg">
+		                </td>
+		                <td class="lable2">影视名称:</td>
+		                <td class="leter">
+		                    <input class="detialname" type="text">
+		                </td>
+		            </tr>
+		            <tr>
+		                <td class="lable2">影视类别:</td>
+		                <td class="leter">
+		                    <input class="detialclass" type="text">
+		                </td>
+		            </tr>  
+		            <tr style="height: 200px;">
+		                <td class="lable2">影视简介:</td>
+		                <td class="leter">
+		                    <textarea cols="30" rows="10" class="detialsum"></textarea>
+		                </td>
+		            </tr>
+		            <tr>
+		                <td style="height: 200px;"></td>
+		                <td style="height: 200px;"></td>
+		            </tr>
+		        </tbody>
+				
+		    </table>
+		    <div style="text-align: center;">
+		        <button class="bu editsure">确定</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		        <button class="bu" onclick="cancel()">取消</button>
+		    </div>
+		</div>
+		<script type="text/javascript" src="magical_js.js"></script>
+		<script>
+		    //实现图片放大效果
+		    $(document).ready(function() 
+			{
+		        var imgsObj = $('.amplifyImg img');//需要放大的图像
+		        if(imgsObj) 
+				{
+		            $.each(imgsObj, function() 
+					{
+		                $(this).click(function() 
+						{
+		                    var currImg = $(this);
+		                    coverLayer(1);
+		                    var tempContainer = $('<div class=tempContainer></div>');//图片容器
+		                    with (tempContainer) 
+							{//width方法等同于$(this)
+		                        appendTo("body");
+		                        var windowWidth = $(window).width();
+		                        var windowHeight = $(window).height();
+		                        //获取图片原始宽度、高度
+		                        var orignImg = new Image();
+		                        orignImg.src = currImg.attr("src");
+		                        var currImgWidth = orignImg.width;
+		                        var currImgHeight = orignImg.height;
+		                        if (currImgWidth < windowWidth) 
+								{//为了让图片不失真，当图片宽度较小的时候，保留原图
+		                            if (currImgHeight < windowHeight) 
+									{
+		                                var topHeight = (windowHeight - currImgHeight) / 2;
+		                                if (topHeight > 35) {/*此处为了使图片高度上居中显示在整个屏幕中，35为title导航的高度*/
+		                                    topHeight = topHeight - 35;
+		                                    css('top', topHeight);
+		                                } else {
+		                                    css('top', 0);
+		                                }
+		                                html('<img border=0 src=' + currImg.attr('src') + '>');
+		                            } 
+									else {
+		                                css('top', 0);
+		                                html('<img border=0 src=' + currImg.attr('src') + ' height=' + windowHeight + '>');
+		                            }
+		                        } 
+								else 
+								{
+		                            var currImgChangeHeight = (currImgHeight * windowWidth) / currImgWidth;
+		                            if (currImgChangeHeight < windowHeight) 
+									{
+		                                var topHeight = (windowHeight - currImgChangeHeight) / 2;
+		                                if (topHeight > 35) {
+		                                    topHeight = topHeight - 35;
+		                                    css('top', topHeight);
+		                                } else {
+		                                    css('top', 0);
+		                                }
+		                                html('<img border=0 src=' + currImg.attr('src') + ' width=' + windowWidth + ';>');
+		                            } 
+									else {
+		                                css('top', 0);
+		                                html('<img border=0 src=' + currImg.attr('src') + ' width=' + windowWidth + '; height=' + windowHeight + '>');
+		                            }
+		                        }
+		                    }
+		                    tempContainer.click(function () 
+							{
+		                        $(this).remove();
+		                        coverLayer(0);
+		                    });
+		                });
+		            });
+		        } 
+				else {
+		            return false;
+		        }
+		
+		        //使用禁用蒙层效果
+		        function coverLayer(tag) 
+				{
+		            with($('.over')) 
+					{
+		                if(tag == 1) 
+						{
+		                    css('height', $(document).height());
+		                    css('display', 'block');
+		                    css('opacity', 1);
+		                    css("background-color", "#FFFFFF");
+		                    css("background-color", "rgba(217, 217, 217, 0.3)");  //蒙层透明度
+		                } 
+						else{
+		                    css('display', 'none');
+		                }
+		            }
+		        }
+		    });
+		</script>
+	</body>
+</html>
